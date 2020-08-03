@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { DIV_CLASS, FORM_CLASS, FETCH_URL_JSON_SERVER, INPUT_CLASS } from "../../constants";
 
 // Создай форму(FORM_CLASS) c input(INPUT_CLASS) и сделай запрос методом GET
-// по адресу FETCH_URL_JSON_SERVER и параметру author(Вася|Петя|Иннокентий|Маша)
+// по адресу FETCH_URL_JSON_SERVER и параметру name(Вася|Петя|Иннокентий|Маша)
 // то есть, чтобы получить инфу о Пете запрос должен выглядеть следующим образом
-// fetch(${FETCH_URL_JSON_SERVER}+&author=Вася) и отрендерить полученный результат
-// в диве(DIV_CLASS) формате Author: ... Title ...
+// fetch(${FETCH_URL_JSON_SERVER}+&name=Вася) и отрендерить полученный результат
+// в диве(DIV_CLASS) формате name: ... Title ...
 
 export default function InterFetch(props) {
   const [value, setValue] = useState("");
@@ -17,7 +17,7 @@ export default function InterFetch(props) {
         className={FORM_CLASS}
         onSubmit={(e) => {
           e.preventDefault();
-          fetch(`${FETCH_URL_JSON_SERVER}?author=` + value)
+          fetch(`${FETCH_URL_JSON_SERVER}?name=` + value)
             .then((resp) => resp.json())
             .then((data) => setResult(data[0]));
         }}
@@ -31,7 +31,7 @@ export default function InterFetch(props) {
         <input type="submit" />
       </form>
       <div className={DIV_CLASS}>
-        {result && `Author: ${result.author} Title: ${result.title}`}
+        {result && `name: ${result.name} Title: ${result.title}`}
       </div>
     </>
   );

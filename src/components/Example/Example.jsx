@@ -13,7 +13,7 @@ const Example = () => {
       .then((data) => setData(data));
   }, [setData]);
 
-  return <div className={EXAMPLE_CLASS}>{data && `Имя: ${data.author}`}</div>;
+  return <div className={EXAMPLE_CLASS}>{data && `Имя: ${data.name}`}</div>;
 };
 
 export default Example;

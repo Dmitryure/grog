@@ -3,22 +3,22 @@
         {
             "id": 1,
             "title": "json-server",
-            "author": "Вася"
+            "name": "Вася"
         },
         {
             "id": 2,
             "title": "privet",
-            "author": "Петя"
+            "name": "Петя"
         },
         {
             "id": 3,
             "title": "hello",
-            "author": "Маша"
+            "name": "Маша"
         },
         {
             "id": 4,
             "title": "fake title",
-            "author": "Иннокентий"
+            "name": "Иннокентий"
         }
     ],
     "comments": [

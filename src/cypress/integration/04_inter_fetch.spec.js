@@ -36,6 +36,6 @@ describe("inter-fetch", () => {
     cy.get(DIV_TEST)
       .contains(testValue)
       .contains("title", { matchCase: false })
-      .contains("author", { matchCase: false });
+      .contains("name", { matchCase: false });
   });
 });

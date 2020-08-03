@@ -11,7 +11,7 @@ describe("basic-fetch", () => {
   it("List is not empty", () => {
     cy.get(`${UL_TEST} > li`).should("have.length", 4);
   });
-  it("Every li tag has author and title", () => {
+  it("Every li tag has name and title", () => {
     cy.get(`${UL_TEST} > li`).each((el) =>
       cy
         .wrap(el)

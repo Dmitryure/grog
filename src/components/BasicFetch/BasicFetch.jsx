@@ -20,7 +20,7 @@ export function BasicFetch() {
           data.map((item) => {
             return (
               <li>
-                Автор: {item.author}, title: {item.title}
+                Автор: {item.name}, title: {item.title}
               </li>
             );
           })}
