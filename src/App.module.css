@@ -17,3 +17,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.activeLink {
+  background-color: rgb(133, 191, 250);
+}
