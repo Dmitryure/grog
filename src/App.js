@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
-import BasicFetch from "./components/BasicFetch/BasicFetch";
-import BasicState from "./components/BasicState/BasicState";
-import InterState from "./components/InterState/InterState";
-import Example from "./components/Example/Example";
+import BasicFetch from "./components/02BasicFetch/BasicFetch";
+import BasicState from "./components/01BasicState/BasicState";
+import InterState from "./components/03InterState/InterState";
+import Example from "./components/00Example/Example";
 import {
   ROUTE_BASIC_FETCH,
   ROUTE_BASIC_STATE,
@@ -11,7 +11,7 @@ import {
   ROUTE_INTER_FETCH,
 } from "./constants";
 import style from "./App.module.css";
-import InterFetch from "./components/InterFetch/InterFetch";
+import InterFetch from "./components/04InterFetch/InterFetch";
 
 function App() {
   return (
