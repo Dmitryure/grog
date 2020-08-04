@@ -1,0 +1,8 @@
+.modal {
+    position: absolute;
+    top: 33%;
+    border-radius: 5%;
+    background-color: gainsboro;
+    width: 150px;
+    padding: 20px;
+}

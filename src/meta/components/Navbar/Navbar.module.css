@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .navbar > a {
+    width: 100%;
+    border: 1px solid black;
+  }
+
+  .activeLink {
+    background-color: rgb(133, 191, 250);
+  }
+  
+  .help{
+      background-color: firebrick;
+      width: 80px;
+      text-align: center;
+  }
