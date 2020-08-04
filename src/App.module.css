@@ -2,22 +2,7 @@ body {
   margin: 0;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.navbar > a {
-  width: 100%;
-  border: 1px solid black;
-}
-
 .container {
   display: flex;
   flex-direction: column;
-}
-
-.activeLink {
-  background-color: rgb(133, 191, 250);
 }
