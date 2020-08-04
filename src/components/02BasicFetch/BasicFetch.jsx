@@ -5,7 +5,7 @@ import { UL_CLASS, FETCH_URL_JSON_SERVER } from "../../constants";
 // Отрендерите каждый пост в листе(UL_CLASS) в формате
 // "Автор: Вася, title: привет"
 
-export function BasicFetch() {
+function BasicFetch() {
   const [data, setData] = useState(null);
   useEffect(() => {
     fetch(FETCH_URL_JSON_SERVER)
