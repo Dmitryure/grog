@@ -12,9 +12,7 @@ const InterState = () => {
 
   return (
     <>
-      <input
-        onChange={(e) => setInput(e.target.value)}
-      />
+      <input onChange={(e) => setInput(e.target.value)} />
       <button
         type="button"
         onClick={() => setWords((state) => [...state, input])}
