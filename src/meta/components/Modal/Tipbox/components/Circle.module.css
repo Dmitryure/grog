@@ -1,0 +1,10 @@
+.circle {
+    flex: 1;
+    background-color: lightcoral;
+    border: 1px solid black;
+    height: 20px;
+}
+
+.active {
+    background-color: green;
+}

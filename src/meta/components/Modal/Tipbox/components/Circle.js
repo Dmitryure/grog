@@ -1,15 +1,17 @@
 import React from 'react';
+import style from './Circle.module.css';
 
 function Circle(props) {
-  const { index, setSelect } = props;
+  const { index, setSelect, active } = props;
+  console.log(active);
   return (
-    <div onClick={(e) => {
-      e.stopPropagation();
-      setSelect((state) => index);
-    }}
-    >
-      {index}
-    </div>
+    <div
+      className={`${style.circle} ${active ? style.active : null}`}
+      onClick={(e) => {
+        e.stopPropagation();
+        setSelect((state) => index);
+      }}
+    />
   );
 }
 
