@@ -4,7 +4,7 @@ import Circle from './components/Circle';
 
 function Tipbox(props) {
   const { data } = props;
-  const [select, setSelect] = useState(1);
+  const [select, setSelect] = useState(0);
   return (
     <>
       <div className={style.selector}>

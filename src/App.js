@@ -21,7 +21,7 @@ function App() {
 
   const transition = useTransition(showModal, null, {
     from: { right: '0px', opacity: 0 },
-    enter: { right: '100px', opacity: 1 },
+    enter: { right: '50px', opacity: 1 },
     leave: { right: '0px', opacity: 0 },
   });
 
