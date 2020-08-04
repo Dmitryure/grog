@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FETCH_URL_JSON_SERVER } from '../../constants';
 
 // Пример задания: сделайте запрос по ручке(FETCH_URL_JSON_SERVER)
-// Отрисуйте пришедшее имя в формате "Имя: Вася"(EXAMPLE_CLASS)
+// Отрисуйте пришедшее имя в формате "Имя: Вася"
 
 const Example = () => {
   const [data, setData] = useState(null);

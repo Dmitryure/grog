@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   FETCH_URL_JSON_SERVER,
 } from '../../constants';
@@ -10,29 +10,5 @@ import {
 // в диве формате name: ... Title ...
 
 export default function InterFetch() {
-  const [value, setValue] = useState('');
-  const [result, setResult] = useState('');
-
-  return (
-    <>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          fetch(`${FETCH_URL_JSON_SERVER}/?name=${value}`)
-            .then((resp) => resp.json())
-            .then((data) => setResult(data[0]));
-        }}
-      >
-        <input
-          name="name"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <input type="submit" />
-      </form>
-      <div>
-        {result && `name: ${result.name} Title: ${result.title}`}
-      </div>
-    </>
-  );
+  return <div>hello</div>;
 }
