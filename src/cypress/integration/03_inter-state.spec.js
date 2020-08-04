@@ -1,8 +1,4 @@
 import {
-  DIV_TEST,
-  BUTTON_TEST,
-  INPUT_TEST,
-  BASE_PROJECT_URL,
   ROUTE_INTER_STATE,
 } from '../../constants';
 
@@ -11,33 +7,36 @@ const logger = console;
 describe('inter-state', () => {
   const text = 'privet';
   beforeEach(() => {
-    cy.visit(`${BASE_PROJECT_URL}${ROUTE_INTER_STATE}`);
+    cy.visit(ROUTE_INTER_STATE);
   });
   it('input can be modified', () => {
-    cy.get(INPUT_TEST).type(text);
-    cy.get(INPUT_TEST).should('have.value', text);
+    cy.get('input')
+      .type(text)
+      .should('have.value', text);
   });
   it('button can be clicked', () => {
-    cy.get(BUTTON_TEST).click();
+    cy.get('button').click();
   });
   it('after button is clicked new field is added', () => {
-    cy.get(INPUT_TEST).type(text);
-    cy.get(BUTTON_TEST).click();
-    cy.get(DIV_TEST);
+    cy.get('input').type(text);
+    cy.get('button').click();
+    cy.get('div');
   });
   it('multiple clicks create multiple divs', () => {
-    cy.get(INPUT_TEST).type(text);
-    cy.get(BUTTON_TEST).click();
-    cy.get(BUTTON_TEST).click();
-    cy.get(BUTTON_TEST).click();
-    cy.get(DIV_TEST).should('have.length', 3);
+    cy.get('input').type(text);
+    cy.get('button')
+      .click()
+      .click()
+      .click();
+    cy.get('button ~ div').should('have.length', 3);
   });
   it('added elements have correct format', () => {
-    cy.get(INPUT_TEST).type(text);
-    cy.get(BUTTON_TEST).click();
-    cy.get(BUTTON_TEST).click();
-    cy.get(BUTTON_TEST).click();
-    cy.get(DIV_TEST).each((el, i) => {
+    cy.get('input').type(text);
+    cy.get('button')
+      .click()
+      .click()
+      .click();
+    cy.get('button ~ div').each((el, i) => {
       logger.log(cy.wrap(el));
       cy.wrap(el).should('have.text', String(i) + text + i);
     });
