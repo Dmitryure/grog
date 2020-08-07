@@ -5,6 +5,7 @@ import {
   ROUTE_BASIC_STATE,
   ROUTE_INTER_STATE,
   ROUTE_INTER_FETCH,
+  ROUTE_DELETE_STATE,
 } from '../../../constants';
 import style from './Navbar.module.css';
 
@@ -34,6 +35,9 @@ function Navbar(props) {
         {' '}
         {ROUTE_INTER_FETCH}
         {' '}
+      </NavLink>
+      <NavLink activeClassName={style.activeLink} to={ROUTE_DELETE_STATE}>
+        {ROUTE_DELETE_STATE}
       </NavLink>
       <div onClick={() => setShowModal((state) => !state)} className={style.help}>?</div>
     </div>
