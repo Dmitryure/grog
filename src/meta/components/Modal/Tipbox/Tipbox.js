@@ -8,9 +8,9 @@ function Tipbox(props) {
   return (
     <>
       <div className={style.selector}>
-        {data && data.map((item, i) => <Circle active={select === i} key={item.id} setSelect={setSelect} index={i} />) }
+        {data && data.map((item, i) => <Circle active={select === i} key={item.id} setSelect={setSelect} index={i} />)}
       </div>
-      <div className={style.tip}>{data[select].text}</div>
+      <div dangerouslySetInnerHTML={{ __html: data[select].text }} className={style.tip} />
     </>
   );
 }
