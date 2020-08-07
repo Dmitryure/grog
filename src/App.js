@@ -10,11 +10,13 @@ import {
   ROUTE_BASIC_STATE,
   ROUTE_INTER_STATE,
   ROUTE_INTER_FETCH,
+  ROUTE_DELETE_STATE,
 } from './constants';
 import style from './App.module.css';
 import InterFetch from './components/04InterFetch/InterFetch';
 import Modal from './meta/components/Modal/Modal';
 import Navbar from './meta/components/Navbar/Navbar';
+import DeleteState from './components/05DeleteState/DeleteState';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -45,6 +47,9 @@ function App() {
             </Route>
             <Route path={ROUTE_INTER_STATE}>
               <InterState />
+            </Route>
+            <Route path={ROUTE_DELETE_STATE}>
+              <DeleteState />
             </Route>
             <Route to="/">
               <Example />

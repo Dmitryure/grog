@@ -5,3 +5,4 @@ export const ROUTE_INTER_STATE = '/inter-state/';
 export const ROUTE_EXAMPLE = '/example/';
 export const SWAPI_URL_BASE = 'https://swapi.dev/api/';
 export const ROUTE_INTER_FETCH = '/inter-fetch/';
+export const ROUTE_DELETE_STATE = '/delete-state/';
