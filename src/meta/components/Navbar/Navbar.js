@@ -15,7 +15,7 @@ function Navbar(props) {
   return (
     <div className={style.navbar}>
       <NavLink activeClassName={style.activeLink} exact to="/">
-        Home
+        Example
       </NavLink>
       <NavLink activeClassName={style.activeLink} to={ROUTE_BASIC_STATE}>
         {' '}

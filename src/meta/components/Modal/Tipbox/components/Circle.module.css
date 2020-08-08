@@ -1,10 +1,10 @@
 .circle {
-    flex: 1;
-    background-color: lightcoral;
     border: 1px solid black;
-    height: 20px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
 }
 
-.active {
-    background-color: green;
-}
+.circleContainer {
+    flex: 1;
+} 
