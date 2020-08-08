@@ -7,14 +7,25 @@
   .navbar > a {
     width: 100%;
     border: 1px solid black;
+    text-decoration: none;
+    background-color: #13ff95;
+    text-align: center;
+  }
+
+  .navbar > a:hover {
+    background-color: #3fe698;
   }
 
   .activeLink {
-    background-color: rgb(133, 191, 250);
+    background-color: #3fe698 !important;
   }
   
   .help{
-      background-color: firebrick;
-      width: 80px;
+      background-color: black;
+      min-width: 20px;
+      margin-left: 5px;
       text-align: center;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
   }
