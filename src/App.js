@@ -24,9 +24,9 @@ function App() {
   const [showModal, setShowModal] = useState(false);
 
   const transition = useTransition(showModal, null, {
-    from: { right: '0px', opacity: 0 },
-    enter: { right: '50px', opacity: 1 },
-    leave: { right: '0px', opacity: 0 },
+    from: { transform: 'translate3d(150px, 0px, 0px)', opacity: 0 },
+    enter: { transform: 'translate3d(0px, 0px, 0px)', opacity: 1 },
+    leave: { transform: 'translate3d(150px, 0px, 0px)', opacity: 0 },
   });
 
   return (
@@ -36,7 +36,7 @@ function App() {
       ))}
       <div className={style.container}>
         <Navbar setShowModal={setShowModal} />
-        <div>
+        <div className={style.componentsContainer}>
           <Switch>
             <Route path={ROUTE_INTER_FETCH}>
               <InterFetch />
