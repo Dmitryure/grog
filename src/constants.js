@@ -6,3 +6,5 @@ export const ROUTE_EXAMPLE = '/example/';
 export const SWAPI_URL_BASE = 'https://swapi.dev/api/';
 export const ROUTE_INTER_FETCH = '/inter-fetch/';
 export const ROUTE_DELETE_STATE = '/delete-state/';
+export const ROUTE_REDUX1 = '/redux1/';
+export const ROUTE_REDUX2 = '/redux2/';

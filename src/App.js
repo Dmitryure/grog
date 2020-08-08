@@ -11,12 +11,14 @@ import {
   ROUTE_INTER_STATE,
   ROUTE_INTER_FETCH,
   ROUTE_DELETE_STATE,
+  ROUTE_REDUX1,
 } from './constants';
 import style from './App.module.css';
 import InterFetch from './components/04InterFetch/InterFetch';
 import Modal from './meta/components/Modal/Modal';
 import Navbar from './meta/components/Navbar/Navbar';
 import DeleteState from './components/05DeleteState/DeleteState';
+import Redux1 from './components/06redux1/Redux1';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -50,6 +52,9 @@ function App() {
             </Route>
             <Route path={ROUTE_DELETE_STATE}>
               <DeleteState />
+            </Route>
+            <Route path={ROUTE_REDUX1}>
+              <Redux1 />
             </Route>
             <Route to="/">
               <Example />
