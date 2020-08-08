@@ -1,9 +1,25 @@
-body {
+html, body {
+  height: 100%;
   margin: 0;
   font-family: "Roboto", Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  
 }
+
+.componentsContainer {
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
