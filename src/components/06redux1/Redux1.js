@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+// Сделай так, чтобы имеющийся инпут обновлял стейт редакса и отражал в ul
+// в редаксе должен быть объект с полем names (в store он уже прописан) и туда
+// должны добавляться значения из input по нажатию кнопки
+
 function Redux1() {
   const names = useSelector((state) => state.names);
   const [input, setInput] = useState('');

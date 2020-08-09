@@ -13,7 +13,10 @@ describe('delete-state', () => {
     cy.get('button').should('have.length', 3);
   });
   it('clicking all buttons leaves no ul', () => {
-    cy.get('button').click({ multiple: true });
+    // click with multiple flag bugs on mac
+    cy.get('button').eq(0).click();
+    cy.get('button').eq(0).click();
+    cy.get('button').eq(0).click();
     cy.get('li').should('not.exist');
   });
   it('clicking on name should delete the name', () => {
