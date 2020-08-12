@@ -31,7 +31,7 @@ describe('inter-fetch', () => {
   it('submitting forms yields result in proper format', () => {
     cy.get('input[value]').type(testValue);
     cy.get('form').submit();
-    cy.get('form ~ div')
+    cy.get('div')
       .contains(testValue)
       .contains('title', { matchCase: false })
       .contains('name', { matchCase: false });

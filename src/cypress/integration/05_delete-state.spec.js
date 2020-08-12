@@ -9,11 +9,13 @@ describe('delete-state', () => {
     cy.get('ul').contains('Petya');
     cy.get('ul').contains('Ilya');
   });
-  it('has 3 buttons', () => {
-    cy.get('button').should('have.length', 3);
+  it('has 5 buttons', () => {
+    cy.get('button').should('have.length', 5);
   });
   it('clicking all buttons leaves no ul', () => {
     // click with multiple flag bugs on mac
+    cy.get('button').eq(0).click();
+    cy.get('button').eq(0).click();
     cy.get('button').eq(0).click();
     cy.get('button').eq(0).click();
     cy.get('button').eq(0).click();
@@ -24,5 +26,9 @@ describe('delete-state', () => {
     cy.get('ul').contains('Petya').should('not.exist');
     cy.get('button').eq(1).click();
     cy.get('ul').contains('Ilya').should('not.exist');
+  });
+  it('clicking on one name does not delete items with same names', () => {
+    cy.get('button').eq(0).click();
+    cy.get('li').should('have.length', 4);
   });
 });
