@@ -13,23 +13,23 @@ describe('inter-fetch', () => {
   });
   it('form has an input', () => {
     cy.get('form').within(() => {
-      cy.get('input[value]');
+      cy.get('input');
     });
   });
   it('input is valid', () => {
-    cy.get('input[value]')
+    cy.get('input').not('[type="submit"]')
       .type(testValue)
       .should('have.value', testValue);
   });
   it('form submission does not reload the page', () => {
-    cy.get('input[value]').type(testValue);
+    cy.get('input').not('[type="submit"]').type(testValue);
     cy.get('form').submit();
     cy.location().should((loc) => {
       expect(loc.pathname).to.eq(ROUTE_INTER_FETCH);
     });
   });
   it('submitting forms yields result in proper format', () => {
-    cy.get('input[value]').type(testValue);
+    cy.get('input').not('[type="submit"]').type(testValue);
     cy.get('form').submit();
     cy.get('div')
       .contains(testValue)
