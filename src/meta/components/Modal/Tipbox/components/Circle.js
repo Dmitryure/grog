@@ -5,9 +5,9 @@ import style from './Circle.module.css';
 function Circle(props) {
   const { index, setSelect, active } = props;
 
-  const [spring, set] = useSpring(() => ({ backgroundColor: !active ? '#13ff95' : '#3fe698' }));
+  const [spring, set] = useSpring(() => ({ backgroundColor: !active ? '#4520AB' : '#29EDFF' }));
   useEffect(() => {
-    set({ backgroundColor: !active ? '#13ff95' : '#3fe698' });
+    set({ backgroundColor: !active ? '#4520AB' : '#29EDFF' });
   }, [active, set]);
   return (
     <div
@@ -16,8 +16,8 @@ function Circle(props) {
         e.stopPropagation();
         setSelect(() => index);
       }}
-      onMouseEnter={() => set({ backgroundColor: '#3fe698' })}
-      onMouseLeave={() => set({ backgroundColor: !active ? '#13ff95' : '#3fe698' })}
+      onMouseEnter={() => set({ backgroundColor: '#29EDFF' })}
+      onMouseLeave={() => set({ backgroundColor: !active ? '#4520AB' : '#29EDFF' })}
     >
       <animated.div
         className={style.circle}
