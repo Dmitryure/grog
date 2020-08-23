@@ -13,6 +13,7 @@ import {
   ROUTE_DELETE_STATE,
   ROUTE_REDUX1, ROUTE_ACTIVE_STATE,
 } from './constants';
+import Examples from './completed/index';
 import style from './App.module.css';
 import InterFetch from './components/04InterFetch/InterFetch';
 import Modal from './meta/components/Modal/Modal';
@@ -39,6 +40,29 @@ function App() {
         <Navbar setShowModal={setShowModal} />
         <div className={style.componentsContainer}>
           <Switch>
+            {/* EXAMPLES */}
+            <Route path={`${ROUTE_INTER_FETCH}example`}>
+              <Examples.InterFetch />
+            </Route>
+            <Route path={`${ROUTE_BASIC_STATE}example`}>
+              <Examples.BasicState />
+            </Route>
+            <Route path={`${ROUTE_BASIC_FETCH}example`}>
+              <Examples.BasicFetch />
+            </Route>
+            <Route path={`${ROUTE_INTER_STATE}example`}>
+              <Examples.InterState />
+            </Route>
+            <Route path={`${ROUTE_DELETE_STATE}example`}>
+              <Examples.DeleteState />
+            </Route>
+            <Route path={`${ROUTE_ACTIVE_STATE}example`}>
+              <Examples.ActiveState />
+            </Route>
+            <Route path={`${ROUTE_REDUX1}example`}>
+              <Examples.Redux1 />
+            </Route>
+            {/* Tasks */}
             <Route path={ROUTE_INTER_FETCH}>
               <InterFetch />
             </Route>
@@ -60,6 +84,7 @@ function App() {
             <Route path={ROUTE_REDUX1}>
               <Redux1 />
             </Route>
+
             <Route to="/">
               <Example />
             </Route>

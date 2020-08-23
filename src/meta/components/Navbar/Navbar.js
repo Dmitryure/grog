@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   ROUTE_BASIC_FETCH,
   ROUTE_BASIC_STATE,
@@ -11,6 +11,7 @@ import {
 import style from './Navbar.module.css';
 
 function Navbar(props) {
+  const location = useLocation();
   const { setShowModal } = props;
   return (
     <div className={style.navbar}>
@@ -46,6 +47,7 @@ function Navbar(props) {
       <NavLink activeClassName={style.activeLink} to={ROUTE_REDUX1}>
         {ROUTE_REDUX1}
       </NavLink>
+      <Link className={style.help} to={`${location.pathname}example`}>!</Link>
       <div onClick={() => setShowModal((state) => !state)} className={style.help}>?</div>
     </div>
   );
