@@ -6,7 +6,7 @@ import {
   ROUTE_INTER_STATE,
   ROUTE_INTER_FETCH,
   ROUTE_DELETE_STATE,
-  ROUTE_REDUX1,
+  ROUTE_REDUX1, ROUTE_ACTIVE_STATE,
 } from '../../../constants';
 import style from './Navbar.module.css';
 
@@ -39,6 +39,9 @@ function Navbar(props) {
       </NavLink>
       <NavLink activeClassName={style.activeLink} to={ROUTE_DELETE_STATE}>
         {ROUTE_DELETE_STATE}
+      </NavLink>
+      <NavLink activeClassName={style.activeLink} to={ROUTE_ACTIVE_STATE}>
+        {ROUTE_ACTIVE_STATE}
       </NavLink>
       <NavLink activeClassName={style.activeLink} to={ROUTE_REDUX1}>
         {ROUTE_REDUX1}

@@ -8,3 +8,4 @@ export const ROUTE_INTER_FETCH = '/inter-fetch/';
 export const ROUTE_DELETE_STATE = '/delete-state/';
 export const ROUTE_REDUX1 = '/redux1/';
 export const ROUTE_REDUX2 = '/redux2/';
+export const ROUTE_ACTIVE_STATE = '/active-state/';

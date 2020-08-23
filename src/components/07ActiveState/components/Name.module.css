@@ -1,0 +1,10 @@
+.notActive {
+    background-color: red;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.active {
+    background-color: green;
+}
+
