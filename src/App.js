@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTransition } from 'react-spring';
 import { Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import BasicFetch from './components/02BasicFetch/BasicFetch';
 import BasicState from './components/01BasicState/BasicState';
 import InterState from './components/03InterState/InterState';
@@ -21,6 +22,7 @@ import Navbar from './meta/components/Navbar/Navbar';
 import DeleteState from './components/05DeleteState/DeleteState';
 import Redux1 from './components/06redux1/Redux1';
 import { ActiveState } from './components/07ActiveState/ActiveState';
+import { store } from './completed/exampleRedux/redux/store';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -41,52 +43,55 @@ function App() {
         <div className={style.componentsContainer}>
           <Switch>
             {/* EXAMPLES */}
-            <Route path={`${ROUTE_INTER_FETCH}example`}>
-              <Examples.InterFetch />
+            <Provider store={store}>
+              <Route exact path={`${ROUTE_INTER_FETCH}example`}>
+                <Examples.InterFetch />
+              </Route>
+              <Route exact path={`${ROUTE_BASIC_STATE}example`}>
+                <Examples.BasicState />
+              </Route>
+              <Route exact path={`${ROUTE_BASIC_FETCH}example`}>
+                <Examples.BasicFetch />
+              </Route>
+              <Route exact path={`${ROUTE_INTER_STATE}example`}>
+                <Examples.InterState />
+              </Route>
+              <Route exact path={`${ROUTE_DELETE_STATE}example`}>
+                <Examples.DeleteState />
+              </Route>
+              <Route exact path={`${ROUTE_ACTIVE_STATE}example`}>
+                <Examples.ActiveState />
+              </Route>
+              <Route exact path={`${ROUTE_REDUX1}example`}>
+                <Examples.Redux1 />
+              </Route>
+            </Provider>
+          </Switch>
+          {/* Tasks */}
+          <Switch>
+            <Route exact path="/">
+              <Example />
             </Route>
-            <Route path={`${ROUTE_BASIC_STATE}example`}>
-              <Examples.BasicState />
-            </Route>
-            <Route path={`${ROUTE_BASIC_FETCH}example`}>
-              <Examples.BasicFetch />
-            </Route>
-            <Route path={`${ROUTE_INTER_STATE}example`}>
-              <Examples.InterState />
-            </Route>
-            <Route path={`${ROUTE_DELETE_STATE}example`}>
-              <Examples.DeleteState />
-            </Route>
-            <Route path={`${ROUTE_ACTIVE_STATE}example`}>
-              <Examples.ActiveState />
-            </Route>
-            <Route path={`${ROUTE_REDUX1}example`}>
-              <Examples.Redux1 />
-            </Route>
-            {/* Tasks */}
-            <Route path={ROUTE_INTER_FETCH}>
+            <Route exact path={ROUTE_INTER_FETCH}>
               <InterFetch />
             </Route>
-            <Route path={ROUTE_BASIC_STATE}>
+            <Route exact path={ROUTE_BASIC_STATE}>
               <BasicState />
             </Route>
-            <Route path={ROUTE_BASIC_FETCH}>
+            <Route exact path={ROUTE_BASIC_FETCH}>
               <BasicFetch />
             </Route>
-            <Route path={ROUTE_INTER_STATE}>
+            <Route exact path={ROUTE_INTER_STATE}>
               <InterState />
             </Route>
-            <Route path={ROUTE_DELETE_STATE}>
+            <Route exact path={ROUTE_DELETE_STATE}>
               <DeleteState />
             </Route>
-            <Route path={ROUTE_ACTIVE_STATE}>
+            <Route exact path={ROUTE_ACTIVE_STATE}>
               <ActiveState />
             </Route>
-            <Route path={ROUTE_REDUX1}>
+            <Route exact path={ROUTE_REDUX1}>
               <Redux1 />
-            </Route>
-
-            <Route to="/">
-              <Example />
             </Route>
           </Switch>
         </div>
