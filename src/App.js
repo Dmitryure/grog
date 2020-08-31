@@ -52,6 +52,7 @@ function App() {
       <div className={style.container}>
         <Navbar setIndex={setIndex} setShowModal={setShowModal} />
         {pageTransition.map(({ item, props, key }) => (
+          //  Мясо - надо рефакторить
           <animated.div className={style.componentsContainer} style={props} key={key}>
             <Switch location={item}>
               {/* EXAMPLES */}

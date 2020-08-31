@@ -35,6 +35,7 @@ function Navbar(props) {
           {' '}
         </NavLink>
       ))}
+      {/* порефакторить бы логику disable'инга */}
       <Link className={`${style.help} ${exampleOpened ? style.activeExample : ''}`} to={`${location.pathname}example`}>
         <div onClick={() => setShowModal(false)}>
           !
