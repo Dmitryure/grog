@@ -23,6 +23,7 @@ const navbarData = [
 function Navbar(props) {
   const location = useLocation();
   const { setShowModal, setIndex } = props;
+  const exampleOpened = location.pathname.includes('example');
   return (
     <div className={style.navbar}>
       {navbarData.map((el, index) => (
@@ -34,8 +35,12 @@ function Navbar(props) {
           {' '}
         </NavLink>
       ))}
-      <Link className={`${style.help} ${location.pathname.includes('example') ? style.activeExample : ''}`} to={`${location.pathname}example`}>!</Link>
-      <div onClick={() => setShowModal((state) => !state)} className={style.help}>?</div>
+      <Link className={`${style.help} ${exampleOpened ? style.activeExample : ''}`} to={`${location.pathname}example`}>
+        <div onClick={() => setShowModal(false)}>
+          !
+        </div>
+      </Link>
+      <div onClick={() => setShowModal((state) => !state)} style={{ pointerEvents: exampleOpened ? 'none' : 'all' }} className={style.help}>?</div>
     </div>
   );
 }

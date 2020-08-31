@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useTransition, animated } from 'react-spring';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import {
+  Switch, Route, useLocation, Redirect,
+} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import BasicFetch from './components/02BasicFetch/BasicFetch';
 import BasicState from './components/01BasicState/BasicState';
 import InterState from './components/03InterState/InterState';
-import Example from './components/00Example/Example';
 import {
   ROUTE_BASIC_FETCH,
   ROUTE_BASIC_STATE,
@@ -78,7 +79,7 @@ function App() {
             {/* Tasks */}
             <Switch location={item}>
               <Route exact path="/">
-                <Example />
+                <Redirect to={ROUTE_BASIC_STATE} />
               </Route>
               <Route exact path={ROUTE_INTER_FETCH}>
                 <InterFetch />
