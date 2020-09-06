@@ -27,9 +27,9 @@ function App() {
   });
 
   const pageTransition = useTransition(location, (l) => l.pathname, {
-    from: { opacity: 0, transform: previousIndex >= index ? 'translate3d(100%,0,0)' : 'translate3d(-100%,0,0)' },
+    from: { opacity: -1.5, transform: previousIndex >= index ? 'translate3d(100%,0,0)' : 'translate3d(-100%,0,0)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-    leave: { opacity: 0, transform: previousIndex < index ? 'translate3d(100%,0,0)' : 'translate3d(-100%,0,0)' },
+    leave: { opacity: -1.5, transform: previousIndex < index ? 'translate3d(100%,0,0)' : 'translate3d(-100%,0,0)' },
   });
 
   return (
