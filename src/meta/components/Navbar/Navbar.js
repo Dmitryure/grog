@@ -6,7 +6,7 @@ import {
   ROUTE_INTER_STATE,
   ROUTE_INTER_FETCH,
   ROUTE_DELETE_STATE,
-  ROUTE_REDUX1, ROUTE_ACTIVE_STATE,
+  ROUTE_REDUX1, ROUTE_ACTIVE_STATE, exampleHandle,
 } from '../../../constants';
 import style from './Navbar.module.css';
 
@@ -23,7 +23,7 @@ const navbarData = [
 function Navbar(props) {
   const location = useLocation();
   const { setShowModal, setIndex } = props;
-  const exampleOpened = location.pathname.includes('example');
+  const exampleOpened = location.pathname.includes(exampleHandle);
   return (
     <div className={style.navbar}>
       {navbarData.map((el, index) => (
@@ -36,7 +36,7 @@ function Navbar(props) {
         </NavLink>
       ))}
       {/* порефакторить бы логику disable'инга */}
-      <Link className={`${style.help} ${exampleOpened ? style.activeExample : ''}`} to={`${location.pathname}example`}>
+      <Link className={`${style.help} ${exampleOpened ? style.activeExample : ''}`} to={`${location.pathname}${exampleHandle}`}>
         <div onClick={() => setShowModal(false)}>
           !
         </div>

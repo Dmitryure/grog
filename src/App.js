@@ -4,27 +4,16 @@ import {
   Switch, Route, useLocation, Redirect,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import BasicFetch from './components/02BasicFetch/BasicFetch';
-import BasicState from './components/01BasicState/BasicState';
-import InterState from './components/03InterState/InterState';
 import {
-  ROUTE_BASIC_FETCH,
   ROUTE_BASIC_STATE,
-  ROUTE_INTER_STATE,
-  ROUTE_INTER_FETCH,
-  ROUTE_DELETE_STATE,
-  ROUTE_REDUX1, ROUTE_ACTIVE_STATE,
 } from './constants';
-import Examples from './completed/index';
 import style from './App.module.css';
-import InterFetch from './components/04InterFetch/InterFetch';
 import Modal from './meta/components/Modal/Modal';
 import Navbar from './meta/components/Navbar/Navbar';
-import DeleteState from './components/05DeleteState/DeleteState';
-import Redux1 from './components/06redux1/Redux1';
-import { ActiveState } from './components/07ActiveState/ActiveState';
 import { store } from './completed/exampleRedux/redux/store';
 import { usePrevious } from './meta/hooks/usePrevious';
+import { MainRouter } from './meta/components/MainRouter/MainRouter';
+import { exampleList, exerciseList } from './lists';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -52,58 +41,20 @@ function App() {
       <div className={style.container}>
         <Navbar setIndex={setIndex} setShowModal={setShowModal} />
         {pageTransition.map(({ item, props, key }) => (
-          //  Мясо - надо рефакторить
           <animated.div className={style.componentsContainer} style={props} key={key}>
             <Switch location={item}>
               {/* EXAMPLES */}
               <Provider store={store}>
-                <Route exact path={`${ROUTE_BASIC_STATE}example`}>
-                  <Examples.BasicState />
-                </Route>
-                <Route exact path={`${ROUTE_BASIC_FETCH}example`}>
-                  <Examples.BasicFetch />
-                </Route>
-                <Route exact path={`${ROUTE_INTER_STATE}example`}>
-                  <Examples.InterState />
-                </Route>
-                <Route exact path={`${ROUTE_DELETE_STATE}example`}>
-                  <Examples.DeleteState />
-                </Route>
-                <Route exact path={`${ROUTE_ACTIVE_STATE}example`}>
-                  <Examples.ActiveState />
-                </Route>
-                <Route exact path={`${ROUTE_REDUX1}example`}>
-                  <Examples.Redux1 />
-                </Route>
+                <MainRouter list={exampleList} />
               </Provider>
             </Switch>
             {/* Tasks */}
             <Switch location={item}>
-              <Route exact path="/">
-                <Redirect to={ROUTE_BASIC_STATE} />
-              </Route>
-              <Route exact path={ROUTE_INTER_FETCH}>
-                <InterFetch />
-              </Route>
-              <Route exact path={ROUTE_BASIC_STATE}>
-                <BasicState />
-              </Route>
-              <Route exact path={ROUTE_BASIC_FETCH}>
-                <BasicFetch />
-              </Route>
-              <Route exact path={ROUTE_INTER_STATE}>
-                <InterState />
-              </Route>
-              <Route exact path={ROUTE_DELETE_STATE}>
-                <DeleteState />
-              </Route>
-              <Route exact path={ROUTE_ACTIVE_STATE}>
-                <ActiveState />
-              </Route>
-              <Route exact path={ROUTE_REDUX1}>
-                <Redux1 />
-              </Route>
+              <MainRouter list={exerciseList} />
             </Switch>
+            <Route exact path="/">
+              <Redirect to={ROUTE_BASIC_STATE} />
+            </Route>
           </animated.div>
         ))}
       </div>
