@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTransition, animated } from 'react-spring';
 import {
-  Switch, Route, useLocation, Redirect,
+  Route, useLocation, Redirect, Switch,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import {
@@ -12,14 +12,13 @@ import Modal from './meta/components/Modal/Modal';
 import Navbar from './meta/components/Navbar/Navbar';
 import { store } from './completed/exampleRedux/redux/store';
 import { usePrevious } from './meta/hooks/usePrevious';
-import { MainRouter } from './meta/components/MainRouter/MainRouter';
 import { exampleList, exerciseList } from './lists';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(null);
   const location = useLocation();
-  const memoizedIndex = usePrevious(index);
+  const previousIndex = usePrevious(index);
 
   const modalTransition = useTransition(showModal, null, {
     from: { transform: 'translate3d(150px, 0px, 0px)', opacity: 0 },
@@ -28,9 +27,9 @@ function App() {
   });
 
   const pageTransition = useTransition(location, (l) => l.pathname, {
-    from: { opacity: 0, transform: memoizedIndex >= index ? 'translate3d(100%,0,0)' : 'translate3d(-100%,0,0)' },
+    from: { opacity: 0, transform: previousIndex >= index ? 'translate3d(100%,0,0)' : 'translate3d(-100%,0,0)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
-    leave: { opacity: 0, transform: memoizedIndex < index ? 'translate3d(100%,0,0)' : 'translate3d(-100%,0,0)' },
+    leave: { opacity: 0, transform: previousIndex < index ? 'translate3d(100%,0,0)' : 'translate3d(-100%,0,0)' },
   });
 
   return (
@@ -42,15 +41,30 @@ function App() {
         <Navbar setIndex={setIndex} setShowModal={setShowModal} />
         {pageTransition.map(({ item, props, key }) => (
           <animated.div className={style.componentsContainer} style={props} key={key}>
+
+            {/* EXAMPLES */}
             <Switch location={item}>
-              {/* EXAMPLES */}
               <Provider store={store}>
-                <MainRouter list={exampleList} />
+                {exampleList.map((el) => {
+                  const { mainRoute, additionalRoute, Component } = el;
+                  return (
+                    <Route exact path={`${mainRoute}${additionalRoute}`}>
+                      <Component key={`${mainRoute}${additionalRoute}`} />
+                    </Route>
+                  );
+                })}
               </Provider>
             </Switch>
             {/* Tasks */}
             <Switch location={item}>
-              <MainRouter list={exerciseList} />
+              {exerciseList.map((el) => {
+                const { mainRoute, additionalRoute, Component } = el;
+                return (
+                  <Route exact path={`${mainRoute}${additionalRoute}`}>
+                    <Component key={`${mainRoute}${additionalRoute}`} />
+                  </Route>
+                );
+              })}
             </Switch>
             <Route exact path="/">
               <Redirect to={ROUTE_BASIC_STATE} />
