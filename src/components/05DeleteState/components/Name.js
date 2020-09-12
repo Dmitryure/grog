@@ -1,12 +1,11 @@
 import React from 'react';
 
 function Name(props) {
-  const { name } = props;
-
+  const { name, del, id } = props;
   return (
     <>
       <li>{name}</li>
-      <button type="button">
+      <button onClick={() => del(id)} type="button">
         Удалить
       </button>
     </>

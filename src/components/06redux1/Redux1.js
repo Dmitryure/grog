@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addName } from '../../redux/actions';
 
 // Сделай так, чтобы имеющийся инпут обновлял стейт редакса и отражал это в ul
 // в редаксе должен быть объект с полем names (в store он уже прописан) и туда
@@ -7,12 +8,17 @@ import { useSelector } from 'react-redux';
 
 function Redux1() {
   const names = useSelector((state) => state.names);
+  const dispatch = useDispatch();
   const [input, setInput] = useState('');
+
+  function handleClick() {
+    dispatch(addName(input));
+  }
 
   return (
     <>
       <input value={input} onChange={(e) => setInput(e.target.value)} />
-      <button type="button">Добавить</button>
+      <button onClick={handleClick} type="button">Добавить</button>
       <ul>
         {/* подумай, почему не надо писать через && и подумай,
          в каком случае оператор бы понадобился */}
