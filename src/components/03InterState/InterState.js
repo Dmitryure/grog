@@ -15,26 +15,27 @@ const InterState = () => {
   function handleSubmit(event) {
     event.preventDefault();
     setResult([...result, state]);
-    setState("");
+    // setState("");
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input name="text" onChange={handleInput} value={state}></input>
-        <input type="submit"></input>
-      </form>
-      <div>
-        {result &&
-          result.map((element, index) => {
-            return (
-              <div>
-                {index}
-                {element}
-                {index}
-              </div>
-            );
-          })}
-      </div>
+      {/* <form onSubmit={handleSubmit}> */}
+      <input name="text" onChange={handleInput} value={state}></input>
+      <button onClick={handleSubmit} type="submit">
+        Submit
+      </button>
+      {/* </form> */}
+
+      {result &&
+        result.map((element, index) => {
+          return (
+            <div>
+              {index}
+              {element}
+              {index}
+            </div>
+          );
+        })}
     </>
   );
 };
