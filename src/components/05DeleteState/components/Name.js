@@ -1,12 +1,17 @@
-import React from 'react';
+import React from "react";
 
 function Name(props) {
-  const { name } = props;
+  const { name, toChild, id } = props;
 
   return (
     <>
       <li>{name}</li>
-      <button type="button">
+      <button
+        type="button"
+        onClick={() => {
+          toChild(id);
+        }}
+      >
         Удалить
       </button>
     </>
