@@ -1,10 +1,19 @@
 // Только добавь редьюсер
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from "redux-devtools-extension";
+import { applyMiddleware, createStore, combineReducers } from "redux";
+import reducer from "./reducers";
 
-const composeEnhancers = composeWithDevTools({ name: 'GROG_STORE' });
+const composeEnhancers = composeWithDevTools({ name: "GROG_STORE" });
 
-export const store = createStore((state) => state, { names: [] }, composeEnhancers(applyMiddleware()));
+export const store = createStore(
+  combineReducers({
+    names: reducer,
+  })
+  // reducer,
+  // (state) => state
+  // { names: [] }
+  // composeEnhancers(applyMiddleware())
+);
 
 if (window.Cypress) {
   window.store = store;
